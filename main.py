@@ -6,6 +6,7 @@ from sqlalchemy import Integer,String,ForeignKey
 from sqlalchemy.orm import DeclarativeBase,Mapped,mapped_column,relationship
 # from sqlalchemy.orm.exc import .False.
 import time
+import os
 from flask_login import UserMixin,LoginManager,login_user,login_required,current_user,logout_user
 
 app=Flask(__name__)
@@ -17,11 +18,11 @@ colors=["#DB7093","#C71585","#FF1493","#7B68EE","#483D8B","#6A5ACD","#4B0082","#
 class Base(DeclarativeBase):
     pass
 
-app.config["SQLALCHEMY_DATABASE_URI"]="sqlite:///C:/Users/ganes/PycharmProjects/TaskManager/instance/task5.db"
+app.config["SQLALCHEMY_DATABASE_URI"]=os.environ.get("DB_TASK","sqlite:///C:/Users/ganes/PycharmProjects/TaskManager/instance/task5.db")
 db=SQLAlchemy(model_class=Base)
 db.init_app(app)
 
-app.config["SECRET_KEY"]="ganeshreddyk8g@mail.com"
+app.config["SECRET_KEY"]=os.environ.get("EMAIL_KEY")
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -165,7 +166,6 @@ def login():
             return redirect(url_for("login"))
     return render_template("login.html")
 
-
 @app.route("/logout")
 @login_required
 def logout():
@@ -173,11 +173,5 @@ def logout():
     return redirect(url_for('home'))
 
 
-
-
-
-
-
-
 if __name__=="__main__":
-    app.run(debug=True)
+    app.run(debug=False)
