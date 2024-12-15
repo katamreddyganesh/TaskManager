@@ -1,0 +1,9 @@
+{% include "header.html" %}
+ <div class="container py-4 px-3 mx-auto">
+     <form action="{{url_for('home')}}" method="POST">
+         <input name="input"  type="text"  style="border:none; outline:none; font-size:50px;" maxlength="30" placeholder="write your task here...." autofocus/></form>
+         <button type="submit" hidden></button>
+    </div>
+
+
+{% include "footer.html" %}
