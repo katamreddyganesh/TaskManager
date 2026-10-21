@@ -12,3 +12,10 @@
 # System files
 Thumbs.db
 .DS_Store
+
+# Language and Framework rules
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/

@@ -1,11 +1,18 @@
 from fastapi import FastAPI
 from sqlmodel import create_engine, SQLModel, Session
 from contextlib import asynccontextmanager
+import os
+
+
+database_url = os.getenv(
+    "DATABASE_URL",
+    "postgresql://postgres:ganesh@localhost:5432/taskmanager"
+)
 
 
 
-database_url = "sqlite:///./taskmanager.db"
-engine = create_engine(database_url, echo=True)
+if database_url:
+    engine = create_engine(database_url, echo=True)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

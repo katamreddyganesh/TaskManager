@@ -9,6 +9,7 @@ from app.routes import task_routes
 
 app = FastAPI(lifespan=lifespan)
 
+
 # adding cors middleware for giving access to frontend
 origins = [
     "http://localhost:3000",      # Add this if using standard React/Next.js
