@@ -1,0 +1,14 @@
+# Secret and environment variables
+.env
+.env.*
+
+# IDE and Editor configurations
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+
+# System files
+Thumbs.db
+.DS_Store

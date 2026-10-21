@@ -1,0 +1,90 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+
+.SignUp-Container{
+    width:100%;
+    height:calc(100vh - 60px);
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+
+
+.sub-container{
+    /* width:100%; */
+    height:auto;
+    /* border:black solid 1px; */
+    border:2px solid black;
+    position:relative;
+    /* top:50%; */
+    /* left:50%; */
+    /* transform: translate(-50%, -50%);  */
+    border-radius:7px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    flex-wrap:wrap;
+    gap:2rem;
+    /* background-color:skyblue; */
+    /* color:red; */
+}
+
+
+form{
+    width:100%;
+    padding:10px;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    flex-wrap:wrap;
+    gap:3rem;
+}
+
+form > div input{
+    width:100%;
+    height:auto;
+    font-size:20px;
+    border-radius:7px;
+    padding:3px;
+    border:2px solid #d9cdcd;
+    /* position:absolute; */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.form-button{
+    /* width:100%; */
+    font-size:16px;
+    border-radius:5px;
+    padding:5px;
+    border:black solid 1px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width:700px){
+    .SignUp-Container{
+    width:calc(100% - 100px);
+    left:0;
+    border:black solid 1px;
+    position:absolute
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+}
+}

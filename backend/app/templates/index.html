@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+<div class="header">
+
+    <div class="header-title">
+        <h2>TaskManager</h2>
+    </div>
+
+    <div class="header-ul">
+    <ul>
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+        <a>Sign in</a>
+      </li>
+        <li>
+        <a>Sign up</a>
+      </li>
+      <li>
+        <a>Sign out</a>
+      </li>
+    </ul>
+    </div>
+
+</div>
+
+<div class="task-body">
+    <div class="body-div">
+        <form action="/Tasks" method="post">
+            <div class="input-div">
+                <input type="text" class="input-task"  placeholder="Enter your task here..."/>
+            </div>
+            <div class="input-div">
+                <input type="number" class="input-userid"  placeholder="Enter user id"/>
+            </div>
+            <div class="input-div">
+                <input type="submit"/>
+            </div>
+        </form>
+            <div class="task-list">
+                <h1>HELLO</h1>
+                <ul>
+
+                    {% for i in task %}
+                <li>{{ i.task }}</li><br> <br>
+                {% endfor %}
+                </ul>
+            </div>
+    </div>
+</div>
+
+</body>
+<footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</footer>
+</html>

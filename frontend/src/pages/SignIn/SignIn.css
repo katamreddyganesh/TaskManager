@@ -1,0 +1,123 @@
+/* start --- signIn page css styling --- start */
+
+
+
+/* main container in sign in page */
+.signIn-Container{
+    width:100%;
+    padding:50px;
+    border:black solid 1px;
+    position:relative;
+    display:flex;
+    flex-wrap:wrap;
+    /* flex-direction:cent; */
+    justify-content:center;
+    align-items:center;
+}
+
+.signIn-SubContainer{
+    width:auto;
+    border:black solid 1px;
+    padding:10px;
+    position:relative;
+    border-radius:7px;
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    flex-wrap:wrap;
+    align-items:center;
+}
+
+.signIn-body{
+    /* border:black solid 1px; */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    gap:2rem;
+}
+
+.signIn-header{
+    width:100%;
+    height:auto;
+    font-size:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    
+}
+
+
+
+.form-tag {
+    display:block;
+    /* border:black solid 1px; */
+    width:100%;
+    padding:10px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:3rem;
+}
+
+.input-email1{
+    width:100%;
+    padding:3px;
+    font-size:20px;
+    border-radius:7px;
+    border:2px solid #d9cdcd;
+    outline:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.input-password1{
+    width:100%;
+    padding:3px;
+    font-size:20px;
+    border:2px solid #d9cdcd;
+    border-radius:7px;
+    /* position:absolute; */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+}  
+
+.submit-button{
+    width:100%;
+    font-size:16px;
+    border-radius:5px;
+    padding:5px;
+    border:black solid 1px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap: wrap;
+}
+
+
+@media screen and (max-width:700px){
+    .signIn-Container{
+        width:calc(100% - 100px);
+        border:black solid 1px;
+        padding:50px;
+        position:relative;
+        left:0;
+        display:flex;
+        flex-wrap:wrap;
+        flex-direction:column;
+        justify-content:space-around;
+        align-items:center;
+    }
+}
+
+
+
+
+/* end --- signIn page css styling --- end */

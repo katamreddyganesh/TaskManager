@@ -1,0 +1,159 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+
+
+.task-edit{
+    display:None;
+}
+
+
+
+
+.todo-container{
+    width:100%;
+    /* max-width:70%; */
+    /* left: 10%; */
+    border:black solid 1px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position: relative;
+    flex-wrap:nowrap !important;
+}
+
+.single-box{
+    border:black solid 1px;
+    border-radius:7px;
+    position:relative;
+    padding:50px;
+    min-height:300px;
+    /* min-width:500px; */
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    flex-direction:column;
+    flex-wrap:nowrap !important;
+    gap:1rem;
+    
+}
+
+.single-box > .todo-div1, .todo-div2{
+    width:100%;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:nowrap !important;
+    flex-direction:column;
+}
+
+.todo-div1 input{
+    width:100%;
+    font-size:30px;
+    padding:10px;
+    border-radius:7px;
+    border:1px solid black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.sub-div2{
+    width:100%;
+    position:relative;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:nowrap !important;
+    gap:5rem;
+}
+
+.sub-div2 > .input-div2, .button-div2{
+    display:flex;
+    position:relative;
+    justify-content:flex-start;
+    align-items:center;
+    flex-wrap:nowrap !important;
+    gap:20px;
+}
+
+
+
+.input-div2 .saveTask{
+    font-size:25px;
+    border-radius:7px;
+    border:1px solid #d9cdcd;
+    position:relavtive;
+    padding:2px;
+    display:flex;
+    flex:1;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:nowrap !important;
+    white-space:normal;
+}
+
+
+
+.input-div2 .task1-text{
+    font-size:25px;
+    position:relavtive;
+    padding:2px;
+    display:flex;
+    flex:1;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:nowrap !important;
+    white-space:normal;
+}
+
+
+.button-div2 > button{
+    font-size:15px;
+    position:relavtive;
+    border:1px solid #d9cdcd;
+    border-radius:7px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:nowrap !important;
+}
+
+
+
+
+@media screen and (max-width:700px) {
+    .todo-container{
+    width:calc(100% - 100px);
+    left:0;
+    border:black solid 1px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    flex-wrap:nowrap !important;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

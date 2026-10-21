@@ -1,0 +1,105 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* start --- navbar css styling --- start  */
+
+.header{
+    width: 100%;
+    background-color: #CFEBFF;
+    padding:15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap:wrap;
+    position:relative;
+    box-sizing:border-box;
+}
+
+
+ul{
+    display: flex;
+    flex-wrap:wrap;
+    list-style: none;
+    gap:2rem;
+}
+
+
+
+ul li {
+  text-align: center;
+  display:flex;
+  flex-wrap:wrap;
+}
+
+
+.header-title {
+    padding: 10px;
+}
+
+.nav-a {
+    text-decoration: None;
+    color: black;
+    padding:1px;
+}
+
+.bread{
+    display: none;
+}
+
+#check{
+display: none;
+}
+@media screen and (max-width:700px){
+    .list{
+        /* border:black solid 1px; */
+        position:absolute;
+        width:100px;
+        height:calc(100vh);
+        right:0;
+        margin-top:18px;
+        padding-top:30px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        flex-wrap:nowrap !important;
+        background-color:#CFEBFF;
+        transition: all 1s;
+        
+    }
+
+    .bread
+    {
+        display: block;
+        margin:10px
+        /* transition: all 1s; */
+    }
+
+
+    #check:checked~.list{
+        right:-100px;
+    }
+
+}
+
+
+
+/* end --- navbar css styling --- end  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
