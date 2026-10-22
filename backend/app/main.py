@@ -19,6 +19,7 @@ origins = [
     "http://127.0.0.1",
     "https://taskmanager-frontend-3kyb.onrender.com",
 ]
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins = origins,
