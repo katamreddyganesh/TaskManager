@@ -5,7 +5,6 @@ import './TodoList.css'
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
-
 export default function Task({user,setUser}) {
     const [form, setForm] = useState({"task":""});
     const [data, setData] = useState(() => {
