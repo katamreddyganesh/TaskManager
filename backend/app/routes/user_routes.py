@@ -34,11 +34,14 @@ def login(session: sessionDep, form_data: Annotated[OAuth2PasswordRequestForm, D
 
 
 @router.get('/get_all_users')
-def get_all_users(session: sessionDep):
-    users = session.exec(select(UserTable)).all()
-    if not users:
-        raise HTTPException(status_code=404, detail="No users registered yet.")
-    return {"users": users}
+def get_all_users(session: sessionDep, user: Annotated[Session, Depends(get_current_user)]):
+    if user.id == 1:
+        users = session.exec(select(UserTable)).all()
+        if not users:
+            raise HTTPException(status_code=404, detail="No users registered yet.")
+        return {"users": users}
+    else:
+        return {"message":"Only Admin has access"}
 
 
 @router.get('/profile')
