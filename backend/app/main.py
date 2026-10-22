@@ -31,10 +31,9 @@ app.add_middleware(
 #for jinja2
 app.mount("/static", StaticFiles(directory="./app/static"), name="static")
 
-@app.get('/',response_class=HTMLResponse)
+@app.get('/')
 def home():
-    with open("./app/templates/example.html","r") as file:
-        return file.read()
+    return {"message":"this is homepage"}
 
 # including user routes and task routes
 app.include_router(user_routes.router, tags=["user_routes"])
