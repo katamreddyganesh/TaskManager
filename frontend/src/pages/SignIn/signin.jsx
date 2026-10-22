@@ -2,6 +2,7 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import  './SignIn.css'
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
 
 export default function SignIn({user, setUser}) {
@@ -28,7 +29,7 @@ export default function SignIn({user, setUser}) {
         form2.append("username",formdata.email)
         form2.append("password", formdata.password)
         
-        fetch("http://127.0.0.1:8000/Login/",
+        fetch(`${API_BASE_URL}/Login/`,
             {
             "method":"POST",
             "headers":{"Content-Type":"application/x-www-form-urlencoded"},

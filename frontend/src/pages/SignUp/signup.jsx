@@ -2,6 +2,8 @@ import { useState } from 'react';
 import {useNavigate} from "react-router-dom";
 import "./SignUp.css"
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+
 export default function SignUp({setUser}) {
   // 1. Manage form input state
   const [formData, setFormData] = useState({
@@ -21,7 +23,7 @@ export default function SignUp({setUser}) {
 
   const handleSubmit = (e) => {
       e.preventDefault()
-      fetch('http://127.0.0.1:8000/Register', 
+      fetch(`${API_BASE_URL}/Register`, 
           {
             method: 'POST',
             headers: {

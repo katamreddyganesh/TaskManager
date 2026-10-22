@@ -12,12 +12,11 @@ app = FastAPI(lifespan=lifespan)
 
 # adding cors middleware for giving access to frontend
 origins = [
-    "http://localhost:3000",      # Add this if using standard React/Next.js
-    "http://localhost:5173",      # Add this if using Vite
-    "http://localhost",      # Add this if using Vite
-    "http://localhost:8080",      # Add this if using Vue/Angular
-    "http://127.0.0.1:8000",      # Your backend itself (fine to keep)
-    "http://127.0.0.1",      # Your backend itself (fine to keep)
+    "http://localhost:5173",
+    "http://localhost",
+    "http://localhost:8080",
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1",
 ]
 app.add_middleware(
     CORSMiddleware,

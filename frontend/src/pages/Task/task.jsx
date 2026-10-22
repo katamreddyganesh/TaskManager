@@ -3,6 +3,9 @@ import {useNavigate} from 'react-router-dom';
 import './TodoList.css'
 
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+
+
 export default function Task({user,setUser}) {
     const [form, setForm] = useState({"task":""});
     const [data, setData] = useState(() => {
@@ -27,7 +30,7 @@ export default function Task({user,setUser}) {
     // using get method for fetching tasks
     const fetchTasks = () =>{
         if (user["login"] === true){
-            fetch(`http://127.0.0.1:8000/Tasks/all/`, {
+            fetch(`${API_BASE_URL}/Tasks/all/`, {
                 "method":"GET",
                 "headers": {
                     "Authorization":`Bearer ${user['data'].access_token}`,
@@ -73,7 +76,7 @@ export default function Task({user,setUser}) {
                 const formData = new URLSearchParams();
                 console.log(form);
                 formData.append("task",form.task);
-                fetch("http://127.0.0.1:8000/Tasks",
+                fetch(`${API_BASE_URL}/Tasks`,
                     {
                         "method":"POST",
                         "headers":{
@@ -99,18 +102,15 @@ export default function Task({user,setUser}) {
                 "task": form.task 
             };
             
-            // Ensure we are working with an array for guest tasks
             const currentTasks = Array.isArray(user.data) ? user.data : [];
             const updatedTasks = [...currentTasks, new_data];
 
-            // This triggers App.jsx's useEffect, auto-saving to localStorage!
             setUser(prev => ({
                 ...prev,
                 count: nextCount,
                 data: updatedTasks
             }));
             
-            // Keep local component state in sync
             setData(updatedTasks);
         }
 
@@ -121,7 +121,6 @@ export default function Task({user,setUser}) {
     
     // using delete method for deleting tasks
     const deleteTask = e => {
-        // console.log("from delete function",e)
         if (typeof(e)==="number"){
             console.log("i am if")
             var id = `${e}`;
@@ -145,8 +144,7 @@ export default function Task({user,setUser}) {
             return; 
         }
 
-        console.log(e.target.name,parseInt(id),id, "this is the id of task")
-        fetch("http://127.0.0.1:8000/Delete_task/" + id,{
+        fetch(`${API_BASE_URL}/Delete_task/` + id,{
             "method":"DELETE",
             "headers":{
                 "Authorization":`Bearer ${user['data'].access_token}`
@@ -172,7 +170,7 @@ export default function Task({user,setUser}) {
             return; 
         }
 
-        fetch(`http://127.0.0.1:8000/Tasks/update_task/${editId}`,{
+        fetch(`${API_BASE_URL}/Tasks/update_task/${editId}`,{
                 "method":"PATCH",
                 "headers":{
                     "Authorization":`Bearer ${user['data'].access_token}`,
