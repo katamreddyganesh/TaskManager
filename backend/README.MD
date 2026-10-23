@@ -37,3 +37,25 @@ Inside the `app/` directory, the code follows a modular, scalable architecture:
    ```bash
    uvicorn app.main:app --reload
    ```
+---
+
+## 🔌 API Reference
+
+You can access the interactive Swagger documentation live at: `https://onrender.com`
+
+### 🏠 Default Route
+* **`GET /`** - Home page route check.
+
+### 👥 User Authentication (`user_routes`)
+* **`POST /Register`** - Sign up a new user account.
+* **`POST /Login`** - Log in an existing user and receive an authentication token.
+* **`GET /get_all_users`** 🔒 - Fetch a list of all registered profiles (Requires Authorization).
+* **`GET /profile`** 🔒 - Retrieve details about the currently logged-in user profile (Requires Authorization).
+
+### 📝 Task Management (`task_routes`)
+* **`GET /Tasks/all`** 🔒 - Retrieve all tasks associated with your account.
+* **`POST /Tasks`** 🔒 - Create a new item on your Todo List.
+* **`PATCH /Tasks/update_task/{task_id}`** 🔒 - Modify a specific task's details or completion status by its ID.
+* **`DELETE /Delete_task/{task_id}`** 🔒 - Permanently remove a specific task by its ID.
+
+*🔒 = Requires a valid JWT bearer token attached to the request header.*
