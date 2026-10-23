@@ -1,24 +1,34 @@
 # Secret and environment variables
 .env
 .env.*
-frontend/.env
-frontend/.env.local
-backend/.env
+.env.local
+*.local
 
 # IDE and Editor configurations
 .vscode/
+!.vscode/extensions.json
 .idea/
 *.suo
 *.ntvs*
 *.njsproj
+*.sln
+*.sw?
 
-# System files
+# System and Log files (Applies globally to root, frontend, and backend)
 Thumbs.db
 .DS_Store
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
 # Frontend dependencies and builds
 frontend/node_modules/
 frontend/dist/
+frontend/dist-ssr/
 frontend/build/
 
 # Backend rules
@@ -27,4 +37,3 @@ backend/*.pyc
 backend/.venv/
 backend/venv/
 backend/taskmanager.db
-backend/logging.log
