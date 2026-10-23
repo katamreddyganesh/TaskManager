@@ -7,9 +7,7 @@ from app.models.models import UserTable
 from app.schemas.user_schemas import Register
 from app.auth import hash_password, verify_password, get_current_user, Annotated, create_access_token
 
-
 router = APIRouter()
-
 
 templates = Jinja2Templates(directory="./app/templates/")
 

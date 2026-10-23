@@ -1,6 +1,9 @@
 # Secret and environment variables
 .env
 .env.*
+frontend/.env
+frontend/.env.local
+backend/.env
 
 # IDE and Editor configurations
 .vscode/
@@ -13,9 +16,15 @@
 Thumbs.db
 .DS_Store
 
-# Language and Framework rules
-node_modules/
-__pycache__/
-*.pyc
-.venv/
-venv/
+# Frontend dependencies and builds
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+
+# Backend rules
+backend/__pycache__/
+backend/*.pyc
+backend/.venv/
+backend/venv/
+backend/taskmanager.db
+backend/logging.log

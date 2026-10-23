@@ -9,7 +9,6 @@ from app.routes import task_routes
 
 app = FastAPI(lifespan=lifespan)
 
-
 # adding cors middleware for giving access to frontend
 origins = [
     "http://localhost:5173",
@@ -38,6 +37,3 @@ def home():
 # including user routes and task routes
 app.include_router(user_routes.router, tags=["user_routes"])
 app.include_router(task_routes.router, tags=["task_routes"])
-
-
-
