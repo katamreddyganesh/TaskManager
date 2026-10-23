@@ -23,6 +23,7 @@ ul{
     display: flex;
     flex-wrap:wrap;
     list-style: none;
+    font-size:18px;
     gap:2rem;
 }
 
@@ -74,7 +75,6 @@ display: none;
     {
         display: block;
         margin:10px
-        /* transition: all 1s; */
     }
 
 
@@ -84,7 +84,9 @@ display: none;
 
 }
 
-
+.profile{
+    align-items:center;
+}
 
 /* end --- navbar css styling --- end  */
 

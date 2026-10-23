@@ -7,7 +7,7 @@ export default function NavBar({user, setUser}){
 
     const isLoggedIn = user['login'];
     const handleLogOut =() =>setUser(prev=>({...prev,["login"]:false}));
-
+    console.log(user,"user details")
     return (
         <div className="header">
 
@@ -44,14 +44,17 @@ export default function NavBar({user, setUser}){
                             <li>
                                 <a className="nav-a" href="/signin" onClick={handleLogOut}>Sign out</a>
                             </li>
-                            <li>
-                                <a className="nav-a" href="">
-                                    {
-                                        user['data']?(
-                                            <p>{user['data'].first_name}</p>
-                                         ):("not present")
-                                    }
-                                </a>
+                            <li class="profile">
+                                    {/* <span> */}
+                                        <a className="nav-a" href="">
+                                            {
+                                                user['data']?(
+                                                    <p>{user['data']["user_details"].first_name}</p>
+                                                ):("not present")
+                                            }
+                                        </a>
+                                        <i class="fa-slab-press fa-regular fa-circle-user"></i>
+                                    {/* </span> */}
                             </li>    
                         </>
                         )
