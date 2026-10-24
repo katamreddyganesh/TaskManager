@@ -11,10 +11,10 @@ auth_schema = OAuth2PasswordBearer(tokenUrl="Login")
 
 secret_key = "mysecretkey"
 algorithm = 'HS256'
-expiry_time = 15
+expiry_time = 2
 
 def create_access_token(data: dict, expiry_time: int = expiry_time):
-    expiry_duration = datetime.now(timezone.utc) + timedelta(minutes=expiry_time)
+    expiry_duration = datetime.now(timezone.utc) + timedelta(days=expiry_time)
     data['exp'] = expiry_duration
     return jwt.encode(data, key=secret_key, algorithm=algorithm)
 
