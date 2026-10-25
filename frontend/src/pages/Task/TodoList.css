@@ -15,11 +15,11 @@
 
 .todo-container{
     width:100%;
-    /* max-width:70%; */
-    /* left: 10%; */
+    height:100%;
+    padding:100px 0px 100px 0px;
     border:black solid 1px;
     display:flex;
-    justify-content:center;
+    justify-content:space-around;
     align-items:center;
     position: relative;
     flex-wrap:nowrap !important;
@@ -31,13 +31,12 @@
     position:relative;
     padding:50px;
     min-height:300px;
-    /* min-width:500px; */
     display:flex;
-    justify-content:flex-start;
+    justify-content:space-around;
     align-items:center;
     flex-direction:column;
     flex-wrap:nowrap !important;
-    gap:1rem;
+    gap:2rem;
     
 }
 
@@ -54,6 +53,8 @@
 .todo-div1 input{
     width:100%;
     font-size:30px;
+    font-style: normal;
+    letter-spacing:1px;
     padding:10px;
     border-radius:7px;
     border:1px solid black;
