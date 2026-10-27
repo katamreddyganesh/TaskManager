@@ -58,9 +58,10 @@ display: none;
         /* border:black solid 1px; */
         position:absolute;
         width:100px;
-        height:calc(100vh);
+        height:calc(100vh - 60px);
+        top:100%;
         right:0;
-        margin-top:18px;
+        /* margin-top:18px; */
         padding-top:30px;
         display:flex;
         flex-direction:column;

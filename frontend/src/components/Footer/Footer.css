@@ -6,9 +6,13 @@
 
 
 
-.Footer-Container{
+.footer-container{
+    border:black 1px solid;
     width:100%;
+    /* padding:50px; */
+    height:100vh;
     position:relative;
+    flex-direction:column;
     background-color:#CFEBFF;
     display:flex;
     justify-content:center;
@@ -16,4 +20,30 @@
     flex-wrap:wrap;
     /* position:relative; */
 
+}
+
+.copyright, .social-networks{
+    display:flex;
+    flex-wrap:wrap;
+    font-size:20px;
+
+}
+
+
+
+@media screen and (max-width:700px){
+        .footer-container{
+        border:black 1px solid;
+        width:calc(100% - 100px);
+        left:0;
+        min-height:200px;
+        position:relative;
+        flex-direction:column;
+        background-color:#CFEBFF;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-wrap:wrap;
+
+    }
 }
