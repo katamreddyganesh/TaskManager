@@ -22,7 +22,8 @@ export default function Footer(){
                 <span>
                     © {new Date().getFullYear()} <strong>Ganesh katamreddy</strong>. 
                     Built with React & Vite. 
-                    Code on <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+                    Code on GitHub.
+
                 </span>
             </div>
 
