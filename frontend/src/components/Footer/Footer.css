@@ -9,6 +9,8 @@
 .footer-container{
     border:black 1px solid;
     width:100%;
+    min-height:300px;
+
     /* padding:50px; */
     height:100vh;
     position:relative;
@@ -18,6 +20,7 @@
     justify-content:center;
     align-items:center;
     flex-wrap:wrap;
+    gap:1rem;
     /* position:relative; */
 
 }
@@ -25,11 +28,19 @@
 .copyright, .social-networks{
     display:flex;
     flex-wrap:wrap;
-    font-size:20px;
+    font-size:18px;
 
 }
 
 
+.social-networks i{
+    font-size:30px;
+}
+
+.footer-icons{
+    text-decoration:none;
+    color:inherit;
+}
 
 @media screen and (max-width:700px){
         .footer-container{
@@ -44,6 +55,15 @@
         justify-content:center;
         align-items:center;
         flex-wrap:wrap;
+        gap:1rem;
 
+    }
+
+    .copyright{
+    font-size:13px;
+    }
+
+    .social-networks i{
+    font-size:20px;
     }
 }
