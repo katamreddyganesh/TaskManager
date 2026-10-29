@@ -5,7 +5,7 @@
 /* main container in sign in page */
 .signIn-Container{
     width:100%;
-    padding:50px;
+    margin-top:150px;;
     border:black solid 1px;
     position:relative;
     display:flex;
