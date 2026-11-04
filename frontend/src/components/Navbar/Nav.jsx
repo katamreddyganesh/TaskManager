@@ -1,13 +1,35 @@
+import {useState, useEffect, useRef} from "react";
+
 import './Navbar.css';
 
 
 
 export default function NavBar({user, setUser}){
-
+    const [isOpen, setIsOpen] = useState(false);
+    const navWrapper = useRef(null);
 
     const isLoggedIn = user['login'];
     const handleLogOut =() =>setUser(prev=>({...prev,["login"]:false}));
     console.log(user,"user details")
+    
+
+    useEffect(()=>{
+        function handleClickOutSide(event){
+            if (isOpen && navWrapper.current && !navWrapper.current.contains(event.target)){
+                setIsOpen(false);
+            }
+        }
+        document.addEventListener("mousedown",handleClickOutSide)
+
+        return ()=>{
+            document.removeEventListener("mousedown", handleClickOutSide)
+        }
+
+    },[isOpen])
+
+
+    
+
     return (
         <div className="header">
 
@@ -15,11 +37,11 @@ export default function NavBar({user, setUser}){
                 <h2>TaskManager</h2>
             </div>
 
-            <div className="header-ul">
+            <div className="header-ul" ref={navWrapper}>
                 <label htmlFor='check' className="bread">
                     <i className="fa-solid fa-bars"></i>
                 </label>
-                <input  type="checkbox" id="check"/>
+                <input  type="checkbox" id="check" checked={isOpen} onChange={(e)=>setIsOpen(!isOpen)}/>
                 <ul className="list">
                     <li>
                         <a className="nav-a" href="/">Home</a>

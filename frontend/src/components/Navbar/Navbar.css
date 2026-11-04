@@ -65,7 +65,7 @@ display: none;
         /* height:calc(100vh - 60px); */
         height:100vh;
         top:100%;
-        right:0;
+        right:-100px;
         /* margin-top:18px; */
         padding-top:30px;
         display:flex;
@@ -85,7 +85,7 @@ display: none;
 
 
     #check:checked~.list{
-        right:-100px;
+        right:0;
     }
 
 }
