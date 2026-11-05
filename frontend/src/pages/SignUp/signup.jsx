@@ -13,13 +13,6 @@ export default function SignUp({setUser}) {
     password: ''
   });
   const navigate = useNavigate();
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
 
   const handleSubmit = (e) => {
       e.preventDefault()
@@ -52,6 +45,14 @@ export default function SignUp({setUser}) {
       )
       .catch(error=>console.log(error));
   }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
 
 
   return (
