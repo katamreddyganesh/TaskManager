@@ -10,8 +10,6 @@
     border:black 1px solid;
     width:100%;
     min-height:300px;
-
-    /* padding:50px; */
     height:100vh;
     position:relative;
     flex-direction:column;
@@ -21,7 +19,6 @@
     align-items:center;
     flex-wrap:wrap;
     gap:1rem;
-    /* position:relative; */
 
 }
 
