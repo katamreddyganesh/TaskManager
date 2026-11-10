@@ -1,4 +1,4 @@
-from fastapi import HTTPException, APIRouter, Depends
+from fastapi import HTTPException, APIRouter, Depends, status
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.templating import Jinja2Templates
 from sqlmodel import select, Session
@@ -13,22 +13,34 @@ templates = Jinja2Templates(directory="./app/templates/")
 
 @router.post('/Register')
 def register(data: Register, session: sessionDep):
-    if session.exec(select(UserTable).where(UserTable.email==data.email)).first():
-        raise HTTPException(status_code=409, detail="This email is already registered. Please log in instead.")
-    hashed_password = hash_password(data.password)
-    user = UserTable(first_name=data.first_name, last_name=data.last_name, email=data.email, hashed_password=hashed_password)
-    session.add(user)
-    session.commit()
-    session.refresh(user)
-    return user
+    try:
+        if session.exec(select(UserTable).where(UserTable.email==data.email)).first():
+            raise HTTPException(status_code=409, detail="This email is already registered. Please log in instead.")
+        hashed_password = hash_password(data.password)
+        user = UserTable(first_name=data.first_name, last_name=data.last_name, email=data.email, hashed_password=hashed_password)
+        session.add(user)
+        session.commit()
+        session.refresh(user)
+        return user
+    except HTTPException:
+        raise
+    except Exception as e:
+        session.rollback()
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Error:{str(e)}")
 
 @router.post('/Login')
 def login(session: sessionDep, form_data: Annotated[OAuth2PasswordRequestForm, Depends()]):
-    user = session.exec(select(UserTable).where(UserTable.email == form_data.username)).first()
-    if not user or not verify_password(form_data.password, user.hashed_password):
-        raise HTTPException(status_code=404, detail="Invalid credentials.!Please enter valid credentials")
-    token = create_access_token({"email":user.email})
-    return {"user_details": user, "access_token": token, "token_type": "bearer"}
+    try:
+        user = session.exec(select(UserTable).where(UserTable.email == form_data.username)).first()
+        if not user or not verify_password(form_data.password, user.hashed_password):
+            raise HTTPException(status_code=404, detail="Invalid credentials.!Please enter valid credentials")
+        token = create_access_token({"email":user.email})
+        return {"user_details": user, "access_token": token, "token_type": "bearer"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        session.rollback()
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Error: {str(e)}")
 
 
 @router.get('/get_all_users')
