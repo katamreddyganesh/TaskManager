@@ -50,7 +50,6 @@ export default function SignIn({user, setUser}) {
             }
             setUser(data)
             setData(response["user_details"])
-            // console.log(response.id,"user data")
             navigate(`/user/${response["user_details"].id}`);
         })
         .catch(error=>console.error(error))
@@ -60,9 +59,6 @@ export default function SignIn({user, setUser}) {
         <>
             <div className="signIn-Container">
                 <div className="signIn-SubContainer">
-                    {/* <div className="signIn-header">
-                        <h1>Sign<span style={{"color":"red"}}>I</span>n Page</h1>
-                    </div> */}
                     <div className="signIn-body">
                     <div className="signIn-header">
                         <h1>Sign<span style={{"color":"red"}}>I</span>n Page</h1>
@@ -84,86 +80,3 @@ export default function SignIn({user, setUser}) {
         </>
     );
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import {useState} from "react";
-
-
-
-
-
-// export default function Login() {
-//     const [formData, setFormData] = useState({
-//         "email": "",
-//         "password": ""
-//     });
-//     const [data, setData] = useState(null);
-
-//     const handleData = (e) =>{
-//         e.preventDefault();
-//         const {name, value} = e.target;
-//         setFormData(prev => (
-//             {...prev, [name]:value }));
-//     }
-//     const handleSubmit = (e) => {
-//         e.preventDefault(); //   THIS stops the page reload!
-//         console.log("Form successfully submitted with data:", formData);
-//         setData(formData);
-//         // You can add logic here to send data to a backend server later
-//     };
-//     return (
-//         <>
-//             <h1>This is sign<span style={{'color':'red'}}>I</span>n page</h1><br/>
-//             <form onSubmit={handleSubmit}>
-//                 <div>
-//                     <label>email:</label>
-//                     <input name="email" onChange={handleData} />
-//                 </div>
-//                 <div>
-//                     <label>password:</label>
-//                     <input name="password" onChange={handleData} />
-//                 </div>
-//                 <div>
-//                     <button type="submit">submit</button>
-//                 </div>
-//             </form>
-//             {data&&(
-//             <h2>
-//                 <p>{data.email}</p>
-//                 <p>{data.password}</p>
-//             </h2>)}
-//         </>
-//     );
-// };
