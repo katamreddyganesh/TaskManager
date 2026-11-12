@@ -14,6 +14,7 @@
     display:flex;
     justify-content:center;
     align-items:center;
+    flex-direction:column;
     flex-wrap:wrap;
 }
 
@@ -78,12 +79,19 @@ form > div input{
     flex-wrap: wrap;
 }
 
+.singup-Error{
+    border:red solid 2px;
+    color:red;
+    background-color:pink;
+    border-radius:10px;
+    height:30px;
+    font-size:18px;
+}
+
 @media screen and (max-width:700px){
     .SignUp-Container{
     width:100%;
     left:0;
-    /* border:black solid 1px; */
-    position:absolute
     display:flex;
     justify-content:center;
     align-items:center;

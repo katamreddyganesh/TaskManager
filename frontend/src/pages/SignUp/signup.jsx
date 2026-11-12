@@ -6,6 +6,7 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
 export default function SignUp({setUser}) {
   // 1. Manage form input state
+  const [formError, setFormError] = useState(null);
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -25,25 +26,26 @@ export default function SignUp({setUser}) {
             body: JSON.stringify(formData)
       }
       )
-      .then(response =>
+      .then(async (response) =>
         {
           if (!response.ok) {
-            throw new Error(`i am new error ${response.status}`);
+            console.log(response,"response from backend")
+            const error = await response.json();
+            setFormError(error.detail)
+            throw new Error(`${error.detail}`);
           }
           return response.json();
       }
       )
       .then(response=>{
-          // const data = {
-          //   "data":response,
-          //   "login":true
-          // }
-          // setUser(data)
           navigate(`/signin`)
           console.log(response,"this is response")
       }
       )
-      .catch(error=>console.log(error));
+      .catch(error=>{
+        // setFormError(error);
+        console.log(error.message)
+      });
   }
 
   const handleChange = (e) => {
@@ -58,6 +60,8 @@ export default function SignUp({setUser}) {
   return (
 
     <div className="SignUp-Container">
+      
+      {formError && (<div className="singup-Error">{formError}</div>)}
       <div className="sub-container">
       <div><h1>Sign<span style={{"color":"red"}}>U</span>p Page</h1></div>
       <div><form onSubmit={handleSubmit}>
