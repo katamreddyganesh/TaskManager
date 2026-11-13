@@ -6,6 +6,7 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
 
 export default function SignIn({user, setUser}) {
+    const [formError, setFormError] = useState(null);
     const [formdata, setFormData] = useState(
         {
             email:"",
@@ -36,10 +37,11 @@ export default function SignIn({user, setUser}) {
             "body":form2
         }
         )
-        .then(response=>{
+        .then(async (response) =>{
             if(!response.ok){
-                console.log("hello i am new error")
-                throw new Error(`this is new error ${response.msg||response.message||"unknown error"}`)
+                const errorMessage = await response.json();
+                setFormError(errorMessage.detail)
+                throw new Error(`this is new error ${errorMessage.detail}`)
             }
             return response.json()
         })
@@ -58,6 +60,7 @@ export default function SignIn({user, setUser}) {
     return (
         <>
             <div className="signIn-Container">
+                {formError && (<div className="singin-Error">{formError}</div>)}
                 <div className="signIn-SubContainer">
                     <div className="signIn-body">
                     <div className="signIn-header">

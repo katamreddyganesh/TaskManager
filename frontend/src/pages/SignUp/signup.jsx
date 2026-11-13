@@ -43,7 +43,6 @@ export default function SignUp({setUser}) {
       }
       )
       .catch(error=>{
-        // setFormError(error);
         console.log(error.message)
       });
   }
@@ -60,7 +59,6 @@ export default function SignUp({setUser}) {
   return (
 
     <div className="SignUp-Container">
-      
       {formError && (<div className="singup-Error">{formError}</div>)}
       <div className="sub-container">
       <div><h1>Sign<span style={{"color":"red"}}>U</span>p Page</h1></div>

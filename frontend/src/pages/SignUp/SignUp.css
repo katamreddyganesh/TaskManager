@@ -16,6 +16,7 @@
     align-items:center;
     flex-direction:column;
     flex-wrap:wrap;
+    gap:18px;
 }
 
 
@@ -80,10 +81,13 @@ form > div input{
 }
 
 .singup-Error{
-    border:red solid 2px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border:red solid 1px;
     color:red;
-    background-color:pink;
-    border-radius:10px;
+    background-color:lightpink;
+    border-radius:3px;
     height:30px;
     font-size:18px;
 }
