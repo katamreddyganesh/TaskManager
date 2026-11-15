@@ -15,10 +15,7 @@
 
 .todo-container{
     width:100%;
-    /* border:black solid 1px; */
-    /* height:auto; */
     margin-top:100px;
-    /* margin-top:100px; */
     display:flex;
     justify-content:space-around;
     align-items:center;
