@@ -32,8 +32,6 @@ def get_current_user(token: Annotated[str, Depends(auth_schema)], session: sessi
     user = session.exec(select(UserTable).where(UserTable.email==payload["email"])).first()
     return user
 
-def authenticate_user(token: Annotated[str, Depends(auth_schema)]):
-    pass
 
 def hash_password(password: str):
     return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
