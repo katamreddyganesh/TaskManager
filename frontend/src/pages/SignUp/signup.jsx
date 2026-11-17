@@ -4,7 +4,7 @@ import "./SignUp.css"
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
-export default function SignUp({setUser}) {
+export default function SignUp() {
   // 1. Manage form input state
   const [formError, setFormError] = useState(null);
   const [formData, setFormData] = useState({

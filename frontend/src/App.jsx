@@ -8,7 +8,6 @@ import Task from "./pages/Task/task.jsx"
 import NavBar from "./components/Navbar/Nav.jsx"
 import Footer from "./components/Footer/footer.jsx"
 import ProtectRoutes from "./routes/ProtectedRoutes.jsx"
-import NotFoundPage from "./pages/NotFound/notfound.jsx"
 
 
 
@@ -44,9 +43,9 @@ export default function App() {
 
                     <Route path="/signup" element={
                         <>
-                        <SignUp user={user} setUser={setUser}/>
+                        <SignUp/>
                         </>
-                    }
+                     }
                     />
 
                     <Route path="/signin" element={
